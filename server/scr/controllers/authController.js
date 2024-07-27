@@ -149,9 +149,9 @@ exports.getMessage = async (req, res) => {
 
   try {
     const messages = await Chat.find({ room: "common" })
-      .sort({ timestamp: -1 }) // Sắp xếp giảm dần theo thời gian
-      .skip((page - 1) * limit) // Bỏ qua các bản ghi của trang trước
-      .limit(parseInt(limit)) // Giới hạn số bản ghi theo limit
+      .sort({ timestamp: -1 })
+      .skip((page - 1) * limit)
+      .limit(parseInt(limit))
       .populate("sender", "firstName lastName role avatar"); // Populate sender với firstName, lastName, role, và avatar
 
     res.status(200).json(messages.reverse()); // Đảo ngược mảng để có thứ tự thời gian tăng dần
@@ -166,9 +166,7 @@ exports.postMessage = async (req, res) => {
     const { sender, message } = req.body;
 
     if (!sender || !message) {
-      return res
-        .status(400)
-        .json({ message: "Sender and message are required." });
+      return res.status(400).json({ message: "Sender and message are required." });
     }
 
     const senderUser = await User.findById(sender);
@@ -178,13 +176,7 @@ exports.postMessage = async (req, res) => {
 
     const newMessage = new Chat({
       room: "common",
-      sender: {
-        _id: sender,
-        firstName: senderUser.firstName,
-        lastName: senderUser.lastName,
-        role: senderUser.role,
-        avatar: senderUser.avatar,
-      },
+      sender, // Lưu ObjectId của sender
       message,
     });
 

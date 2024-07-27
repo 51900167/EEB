@@ -11,7 +11,10 @@ router.route('/verify-reset-code').post(authController.verifyResetCode);
 router.route('/reset-password').post(authController.resetPassword);
 
 router.route('/message').get(authController.getMessage)
+
 router.route('/message').post(authController.postMessage)
+
+
 
 
 module.exports = router;

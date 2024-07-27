@@ -167,7 +167,7 @@ const Header = () => {
         }`}
         onClick={toggleSidebar}>
         <div className="fixed inset-0 bg-stone-600 bg-opacity-50"></div>
-        <div className="fixed inset-y-0 left-0 bg-white">
+        <div className="fixed inset-y-0 left-0 bg-white dark:bg-stone-900">
           <HeadSideBar className="block" />
         </div>
       </div>

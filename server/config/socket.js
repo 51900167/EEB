@@ -27,25 +27,6 @@ const setupSocket = (server) => {
             }
         });
 
-        // Handle sending messages
-        // socket.on('sendMessage', async ({ sender, message }) => {
-        //     console.log('Received sendMessage event:', { sender, message });
-        //     try {
-        //         const newMessage = new Chat({
-        //             room: 'common',
-        //             sender,
-        //             message,
-        //             timestamp: new Date() // Đảm bảo trường timestamp tồn tại trong schema
-        //         });
-        //         await newMessage.save();
-        
-        //         // Broadcast message to all users in the room
-        //         io.to('common').emit('receiveMessage', newMessage);
-        //     } catch (error) {
-        //         console.error('Error sending message:', error);
-        //     }
-        // });
-
         socket.on('sendMessage', async ({ sender, message }) => {
             console.log('Received sendMessage event:', { sender, message });
             try {
@@ -71,6 +52,7 @@ const setupSocket = (server) => {
                         _id: user._id,
                         lastName: user.lastName,
                         firstName: user.firstName,
+                        avatar: user.avatar,
                         role: user.role
                     }
                 };

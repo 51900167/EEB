@@ -25,11 +25,11 @@ function HeadSideBar({ responsiveClass,toggleSidebar }) {
   return (
     <div >
       <div
-        className={`min-h-screen w-64 flex flex-col bg-stone-100 dark:bg-stone-900 text-black  dark:text-white ${responsiveClass} pr-4`}>
+        className={`w-72 flex flex-col bg-stone-100 dark:bg-stone-900 text-black  dark:text-white ${responsiveClass}`}>
         {/* <h2 className="text-xl font-bold p-4 border-b border-stone-700">
           Chào {username}!
         </h2> */}
-        <ul className="flex flex-col space-y-2 p-4 text-sm mt-4 ml-4 rounded-lg shadow bg-white dark:bg-stone-800">
+        <ul className="flex flex-col space-y-2 p-4 text-sm mt-4 mx-4 rounded-lg shadow bg-white dark:bg-stone-800">
           <li>
             <NavLink
               to="/head"

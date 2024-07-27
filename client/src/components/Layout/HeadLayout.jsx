@@ -7,7 +7,7 @@ import Breadcrumb from "./Breadcrumb.jsx";
 const HeadLayout = ({ children }) => {
   const responsiveClass = "hidden md:flex";
   return (
-    <div className="flex flex-col min-h-screen  bg-stone-100 dark:text-white dark:bg-stone-900 max-w-full overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-stone-100 dark:text-white dark:bg-stone-900 max-w-full overflow-x-hidden">
       <Header className="shadow-inner" />
       <div className="flex flex-1 ">
         <Sidebar responsiveClass={responsiveClass} />

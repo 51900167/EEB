@@ -1,16 +1,18 @@
-import React from 'react';
-import Header from './Header.jsx';
-// import Footer from './Footer.jsx';
-import Sidebar from '../Sidebar/HeadSidebar.jsx';
+import React from "react";
+import Header from "./Header.jsx";
+// import Footer from "./Footer.jsx";
+import Sidebar from '../Sidebar/StudentSidebar.jsx';
+import Breadcrumb from "./Breadcrumb.jsx";
 
-const StudentLayout = ({ children }) => {
-  console.log("children: "+children);
+const HeadLayout = ({ children }) => {
+  const responsiveClass = "hidden md:flex";
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
+    <div className="flex flex-col min-h-screen bg-stone-100 dark:text-white dark:bg-stone-900 max-w-full overflow-x-hidden">
+      <Header className="shadow-inner" />
       <div className="flex flex-1">
-        <Sidebar />
-        <main className="flex-1 p-4">
+        <Sidebar responsiveClass={responsiveClass} />
+        <main className="flex-1 p-4 text-black overflow-hidden">
+          <Breadcrumb/>
           {children}
         </main>
       </div>
@@ -19,4 +21,5 @@ const StudentLayout = ({ children }) => {
   );
 };
 
-export default StudentLayout;
+export default HeadLayout;
+
